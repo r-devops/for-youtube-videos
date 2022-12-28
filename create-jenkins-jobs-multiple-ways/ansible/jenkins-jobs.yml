@@ -1,0 +1,29 @@
+- name: Ansible Playbook to Create all the RoboShop Project Jobs in Jenkins Server.
+  hosts: localhost
+  roles:
+    - jenkins-jobs
+  vars:
+    folders:
+      - APP-SETUP-WITH-ANSIBLE
+      - Infrastructure
+      - CI-Pipelines
+    pipeline_jobs:
+      - { jobName: "roboshop", folderName: "APP-SETUP-WITH-ANSIBLE", repoName: "roboshop-ansible", fileName: "Jenkinsfile" }
+      - { jobName: "cart", folderName: "Infrastructure", repoName: "cart-infra", fileName: "Jenkinsfile" }
+      - { jobName: "catalogue", folderName: "Infrastructure", repoName: "catalogue-infra", fileName: "Jenkinsfile" }
+      - { jobName: "user", folderName: "Infrastructure", repoName: "user-infra", fileName: "Jenkinsfile" }
+      - { jobName: "frontend", folderName: "Infrastructure", repoName: "frontend-infra", fileName: "Jenkinsfile" }
+      - { jobName: "payment", folderName: "Infrastructure", repoName: "payment-infra", fileName: "Jenkinsfile" }
+      - { jobName: "shipping", folderName: "Infrastructure", repoName: "shipping-infra", fileName: "Jenkinsfile" }
+      - { jobName: "DESTROY", folderName: "Infrastructure", repoName: "roboshop-jenkins", fileName: "Jenkinsfile-Destroy-Infra" }
+      - { jobName: "CREATE", folderName: "Infrastructure", repoName: "roboshop-jenkins", fileName: "Jenkinsfile-Create-Infra" }
+      - { jobName: "transit-gw", folderName: "Infrastructure", repoName: "terraform-vpc-transit-setup", fileName: "Jenkinsfile" }
+      - { jobName: "roboshop-public", folderName: "Infrastructure", repoName: "roboshop-frontend-public", fileName: "Jenkinsfile" }
+      - { jobName: "set-jenkins-ip", folderName: "Infrastructure", repoName: "roboshop-jenkins", fileName: "Jenkinsfile-jenkins-dns-setup" }
+    multibranch_jobs:
+      - { jobName: "cart", folderName: "CI-Pipelines", repoName: "cart", fileName: "Jenkinsfile" }
+      - { jobName: "catalogue", folderName: "CI-Pipelines", repoName: "catalogue", fileName: "Jenkinsfile" }
+      - { jobName: "user", folderName: "CI-Pipelines", repoName: "user", fileName: "Jenkinsfile" }
+      - { jobName: "frontend", folderName: "CI-Pipelines", repoName: "frontend", fileName: "Jenkinsfile" }
+      - { jobName: "payment", folderName: "CI-Pipelines", repoName: "payment", fileName: "Jenkinsfile" }
+      - { jobName: "shipping", folderName: "CI-Pipelines", repoName: "shipping", fileName: "Jenkinsfile" }
