@@ -1,5 +1,5 @@
 .terra*
-terra*
+terraform.*
 .terraform/terraform.tfstate
 .terraform/
 .idea/
